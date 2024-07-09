@@ -17,7 +17,7 @@ backup() {
     opkg list-installed > packages-list.txt
     tar -czvf overlay_backup.tar.gz /overlay
     # 将所有备份打包成一个文件
-    tar -czvf backup.tar.gz distfeeds.conf packages-list.txt overlay_backup.tar.gz
+    tar -czvf backup_$(date +%Y%m%d_%H%M%S).tar.gz distfeeds.conf packages-list.txt overlay_backup.tar.gz
     # 清理临时文件
     rm -rf distfeeds.conf packages-list.txt overlay_backup.tar.gz
     green "系统备份文件已保存至 $backup_path/backup.tar.gz"
